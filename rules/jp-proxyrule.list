@@ -1,7 +1,7 @@
 #日本节点规则
 #
 #abema规则
-- DOMAIN-SUFFIX,abema-tv.com
-- DOMAIN-SUFFIX,abema.io
-- DOMAIN-SUFFIX,bucketeer.jp
-- DOMAIN-SUFFIX,akamaized.net
+DOMAIN-SUFFIX,abema-tv.com
+DOMAIN-SUFFIX,abema.io
+DOMAIN-SUFFIX,bucketeer.jp
+DOMAIN-SUFFIX,akamaized.net
