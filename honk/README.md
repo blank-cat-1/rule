@@ -4,9 +4,36 @@
 
 ## 配置
 
-`config.dae` 以原 dae 配置为底稿，仅补入缺少的规则和 US/JP 组。原 14 个服务组、DNS、AAAA 拒绝、853/UDP443 阻断、国内 IP 强制直连、Final score 和 Doona 设置保留；网卡为 br-lan。
+`config.dae` 保留原 dae 的 DNS、AAAA 拒绝、853/UDP443 阻断、国内 IP 强制直连与 Doona 设置，网卡为 br-lan。策略组已按 Mihomo YAML 类似层级重构：服务选择器 → 地区策略 → 节点。Final 改为可手动选择的漏网流量组，默认选择 Proxy，不再固定为 score。
 
 **公开配置的订阅 URL 是占位符。使用前在本机替换，勿把真实订阅提交到仓库。**
+
+
+## 策略组结构
+
+Proxy 是总选择器，不再等同香港。AI、YouTube、Google、Github、Telegram、TikTok、Netflix、Wallet、Steam、Microsoft、OneDrive、Apple、Final 都是独立服务选择器，可以选择同一套地区策略，也可以选 Proxy 或 direct。
+
+| 地区 | 手动选择节点 | 自动测速 | 负载均衡 | 故障转移 |
+|---|---|---|---|---|
+| 香港 | HK | HK-Auto | HK-LoadBalance | HK-Fallback |
+| 日本 | JP | JP-Auto | JP-LoadBalance | JP-Fallback |
+| 美国 | US | US-Auto | US-LoadBalance | US-Fallback |
+| 新加坡 | SG | SG-Auto | SG-LoadBalance | SG-Fallback |
+
+另外提供 All（全部节点手动）、Auto（全部节点自动）、LoadBalance（全部节点轮询）、Other（其他地区手动）及显式 direct。组名采用 ASCII，原生策略分别为 select、min_moving_avg、loadbalance、fallback；负载均衡是对新连接分配节点，不是让单个下载叠加多条线路。
+
+默认选择：Proxy/Google/Github/Telegram/Steam/Apple → HK-Auto；AI/TikTok/Wallet/Microsoft/OneDrive → JP-Auto；YouTube → US-Auto；Netflix → SG-Auto；Final → Proxy。地区没有匹配到节点或全部不可用时失败关闭，不会暗中跨地区或直连；可在服务组主动选择其他地区、Auto、All 或 direct。
+
+Apple Push 专用规则改为 HK，以免随总 Proxy 切换地区。其他 routing 表达式和优先级保持不变。自动测速 tolerance 为 20ms；沿用全局 30s 探测间隔，不写无效的每组 interval。选择变化会中断受影响的连接。
+
+共 34 组，最大嵌套深度 3。`groups.json` 为生成的映射；结构源在 `scripts/update_groups.py`。修改结构后运行：
+
+```sh
+python honk/scripts/update_groups.py
+python honk/scripts/validate_groups.py
+```
+
+本次静态验证已覆盖组引用、默认成员、循环、层级、筛选正则和路由目标；尚未在用户路由器的 honk 原生加载器运行。不需要修改数据库就能调整组选择。修改 `.dae` 需要在路由器上应用配置；Geo 自动更新只更新数据库，不会自动替换 `.dae` 或订阅。
 
 ## 日常维护
 

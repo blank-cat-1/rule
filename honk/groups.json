@@ -1,0 +1,620 @@
+[
+  {
+    "name": "Proxy",
+    "filters": [
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Service selector",
+    "default": "HK-Auto"
+  },
+  {
+    "name": "AI",
+    "filters": [
+      "group('Proxy')",
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Service selector",
+    "default": "JP-Auto"
+  },
+  {
+    "name": "YouTube",
+    "filters": [
+      "group('Proxy')",
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Service selector",
+    "default": "US-Auto"
+  },
+  {
+    "name": "Google",
+    "filters": [
+      "group('Proxy')",
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Service selector",
+    "default": "HK-Auto"
+  },
+  {
+    "name": "Github",
+    "filters": [
+      "group('Proxy')",
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Service selector",
+    "default": "HK-Auto"
+  },
+  {
+    "name": "Telegram",
+    "filters": [
+      "group('Proxy')",
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Service selector",
+    "default": "HK-Auto"
+  },
+  {
+    "name": "TikTok",
+    "filters": [
+      "group('Proxy')",
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Service selector",
+    "default": "JP-Auto"
+  },
+  {
+    "name": "Netflix",
+    "filters": [
+      "group('Proxy')",
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Service selector",
+    "default": "SG-Auto"
+  },
+  {
+    "name": "Wallet",
+    "filters": [
+      "group('Proxy')",
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Service selector",
+    "default": "JP-Auto"
+  },
+  {
+    "name": "Steam",
+    "filters": [
+      "group('Proxy')",
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Service selector",
+    "default": "HK-Auto"
+  },
+  {
+    "name": "Microsoft",
+    "filters": [
+      "group('Proxy')",
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Service selector",
+    "default": "JP-Auto"
+  },
+  {
+    "name": "OneDrive",
+    "filters": [
+      "group('Proxy')",
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Service selector",
+    "default": "JP-Auto"
+  },
+  {
+    "name": "Apple",
+    "filters": [
+      "group('Proxy')",
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Service selector",
+    "default": "HK-Auto"
+  },
+  {
+    "name": "Final",
+    "filters": [
+      "group('Proxy')",
+      "group('HK-Auto')",
+      "group('HK')",
+      "group('HK-LoadBalance')",
+      "group('HK-Fallback')",
+      "group('JP-Auto')",
+      "group('JP')",
+      "group('JP-LoadBalance')",
+      "group('JP-Fallback')",
+      "group('US-Auto')",
+      "group('US')",
+      "group('US-LoadBalance')",
+      "group('US-Fallback')",
+      "group('SG-Auto')",
+      "group('SG')",
+      "group('SG-LoadBalance')",
+      "group('SG-Fallback')",
+      "group('Auto')",
+      "group('LoadBalance')",
+      "group('Other')",
+      "group('All')",
+      "name(direct)"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Choose a region policy or direct; Final is the unmatched-traffic selector.",
+    "default": "Proxy"
+  },
+  {
+    "name": "HK",
+    "filters": [
+      "name(regex: '(?i)(🇭🇰|HK|Hong[ _-]?Kong|香港|港)') && !name(regex: '台|日|韩|新|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Hong Kong select"
+  },
+  {
+    "name": "HK-Auto",
+    "filters": [
+      "name(regex: '(?i)(🇭🇰|HK|Hong[ _-]?Kong|香港|港)') && !name(regex: '台|日|韩|新|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "min_moving_avg",
+    "final": "block",
+    "comment": "Hong Kong min_moving_avg",
+    "tolerance": 20
+  },
+  {
+    "name": "HK-LoadBalance",
+    "filters": [
+      "name(regex: '(?i)(🇭🇰|HK|Hong[ _-]?Kong|香港|港)') && !name(regex: '台|日|韩|新|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "loadbalance",
+    "final": "block",
+    "comment": "Hong Kong loadbalance"
+  },
+  {
+    "name": "HK-Fallback",
+    "filters": [
+      "name(regex: '(?i)(🇭🇰|HK|Hong[ _-]?Kong|香港|港)') && !name(regex: '台|日|韩|新|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "fallback",
+    "final": "block",
+    "comment": "Hong Kong fallback"
+  },
+  {
+    "name": "JP",
+    "filters": [
+      "name(regex: '(?i)(🇯🇵|JP|Japan|日本|日)') && !name(regex: '港|台|韩|新|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Japan select"
+  },
+  {
+    "name": "JP-Auto",
+    "filters": [
+      "name(regex: '(?i)(🇯🇵|JP|Japan|日本|日)') && !name(regex: '港|台|韩|新|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "min_moving_avg",
+    "final": "block",
+    "comment": "Japan min_moving_avg",
+    "tolerance": 20
+  },
+  {
+    "name": "JP-LoadBalance",
+    "filters": [
+      "name(regex: '(?i)(🇯🇵|JP|Japan|日本|日)') && !name(regex: '港|台|韩|新|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "loadbalance",
+    "final": "block",
+    "comment": "Japan loadbalance"
+  },
+  {
+    "name": "JP-Fallback",
+    "filters": [
+      "name(regex: '(?i)(🇯🇵|JP|Japan|日本|日)') && !name(regex: '港|台|韩|新|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "fallback",
+    "final": "block",
+    "comment": "Japan fallback"
+  },
+  {
+    "name": "US",
+    "filters": [
+      "name(regex: '(?i)(🇺🇸|🇺🇲|US|United[ _-]?States|America|美国|美)') && !name(regex: '港|台|韩|新|日') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "United States select"
+  },
+  {
+    "name": "US-Auto",
+    "filters": [
+      "name(regex: '(?i)(🇺🇸|🇺🇲|US|United[ _-]?States|America|美国|美)') && !name(regex: '港|台|韩|新|日') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "min_moving_avg",
+    "final": "block",
+    "comment": "United States min_moving_avg",
+    "tolerance": 20
+  },
+  {
+    "name": "US-LoadBalance",
+    "filters": [
+      "name(regex: '(?i)(🇺🇸|🇺🇲|US|United[ _-]?States|America|美国|美)') && !name(regex: '港|台|韩|新|日') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "loadbalance",
+    "final": "block",
+    "comment": "United States loadbalance"
+  },
+  {
+    "name": "US-Fallback",
+    "filters": [
+      "name(regex: '(?i)(🇺🇸|🇺🇲|US|United[ _-]?States|America|美国|美)') && !name(regex: '港|台|韩|新|日') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "fallback",
+    "final": "block",
+    "comment": "United States fallback"
+  },
+  {
+    "name": "SG",
+    "filters": [
+      "name(regex: '(?i)(🇸🇬|SG|Singapore|新加坡|坡|狮城)') && !name(regex: '台|日|韩|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Singapore select"
+  },
+  {
+    "name": "SG-Auto",
+    "filters": [
+      "name(regex: '(?i)(🇸🇬|SG|Singapore|新加坡|坡|狮城)') && !name(regex: '台|日|韩|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "min_moving_avg",
+    "final": "block",
+    "comment": "Singapore min_moving_avg",
+    "tolerance": 20
+  },
+  {
+    "name": "SG-LoadBalance",
+    "filters": [
+      "name(regex: '(?i)(🇸🇬|SG|Singapore|新加坡|坡|狮城)') && !name(regex: '台|日|韩|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "loadbalance",
+    "final": "block",
+    "comment": "Singapore loadbalance"
+  },
+  {
+    "name": "SG-Fallback",
+    "filters": [
+      "name(regex: '(?i)(🇸🇬|SG|Singapore|新加坡|坡|狮城)') && !name(regex: '台|日|韩|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "fallback",
+    "final": "block",
+    "comment": "Singapore fallback"
+  },
+  {
+    "name": "Other",
+    "filters": [
+      "!name(regex: '(?i)(🇭🇰|HK|Hong[ _-]?Kong|香港|港|🇯🇵|JP|Japan|日本|日|🇺🇸|🇺🇲|US|United[ _-]?States|America|美国|美|🇸🇬|SG|Singapore|新加坡|坡|狮城)') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "Nodes outside HK/JP/US/SG"
+  },
+  {
+    "name": "All",
+    "filters": [
+      "!name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "select",
+    "final": "block",
+    "comment": "All eligible proxy nodes; direct excluded"
+  },
+  {
+    "name": "Auto",
+    "filters": [
+      "!name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "min_moving_avg",
+    "final": "block",
+    "comment": "All eligible proxy nodes; direct excluded",
+    "tolerance": 20
+  },
+  {
+    "name": "LoadBalance",
+    "filters": [
+      "!name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')"
+    ],
+    "policy": "loadbalance",
+    "final": "block",
+    "comment": "All eligible proxy nodes; direct excluded"
+  }
+]

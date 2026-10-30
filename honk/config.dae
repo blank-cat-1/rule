@@ -21,87 +21,569 @@ subscription {
 
 # policy 可选 select（面板手动选，默认）/ min_moving_avg（延迟最低）/ fallback（按顺序取第一个存活）/ loadbalance（轮询）/ score（按实际连接质量评分）；final：所选节点不可用时改走的组
 group {
+    # Service selector
     Proxy {
-        filter: name(regex: '🇭🇰|HK|hk|香港|港|HongKong') && !name(regex: '排除')
-        final: Final
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: HK-Auto
+        final: block
         interrupt_connections: true
     }
+    # Service selector
     AI {
-        filter: name(regex: '🇺🇸|US|美国|美|United States') && !name(regex: '排除')
-        final: Final
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: JP-Auto
+        final: block
         interrupt_connections: true
     }
+    # Service selector
     YouTube {
-        filter: name(regex: '🇭🇰|HK|hk|香港|港|HongKong') && !name(regex: '排除')
-        final: Final
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: US-Auto
+        final: block
         interrupt_connections: true
     }
+    # Service selector
     Google {
-        filter: name(regex: '🇭🇰|HK|hk|香港|港|HongKong') && !name(regex: '排除')
-        final: Final
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: HK-Auto
+        final: block
         interrupt_connections: true
     }
+    # Service selector
     Github {
-        filter: name(regex: '🇯🇵|JP|jp|日本|日|Japan') && !name(regex: '排除')
-        final: Final
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: HK-Auto
+        final: block
         interrupt_connections: true
     }
+    # Service selector
     Telegram {
-        filter: name(regex: '🇭🇰|HK|hk|香港|港|HongKong') && !name(regex: '排除')
-        final: Final
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: HK-Auto
+        final: block
         interrupt_connections: true
     }
+    # Service selector
     TikTok {
-        filter: name(regex: '🇺🇸|US|美国|美|United States') && !name(regex: '排除')
-        final: Final
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: JP-Auto
+        final: block
         interrupt_connections: true
     }
+    # Service selector
     Netflix {
-        filter: name(regex: '🇺🇸|US|美国|美|United States') && !name(regex: '排除')
-        final: Final
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: SG-Auto
+        final: block
         interrupt_connections: true
     }
+    # Service selector
     Wallet {
-        filter: name(regex: '🇺🇸|US|美国|美|United States') && !name(regex: '排除')
-        final: Final
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: JP-Auto
+        final: block
         interrupt_connections: true
     }
+    # Service selector
     Steam {
-        filter: name(regex: '🇭🇰|HK|hk|香港|港|HongKong') && !name(regex: '排除')
-        final: Final
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: HK-Auto
+        final: block
         interrupt_connections: true
     }
+    # Service selector
     Microsoft {
-        filter: name(regex: '🇯🇵|JP|jp|日本|日|Japan') && !name(regex: '排除')
-        final: Final
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: JP-Auto
+        final: block
         interrupt_connections: true
     }
+    # Service selector
     OneDrive {
-        filter: name(regex: '🇯🇵|JP|jp|日本|日|Japan') && !name(regex: '排除')
-        final: Final
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: JP-Auto
+        final: block
         interrupt_connections: true
     }
+    # Service selector
     Apple {
-        filter: name(regex: '🇭🇰|HK|hk|香港|港|HongKong') && !name(regex: '排除')
-        final: Final
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: HK-Auto
+        final: block
         interrupt_connections: true
     }
+    # Choose a region policy or direct; Final is the unmatched-traffic selector.
     Final {
-        filter: !name(regex: '官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate')
-        policy: score
-    }
-
-    # Additional region group for YAML-only custom rules
-    US {
-        filter: name(regex: '🇺🇸|US|美国|美|United States') && !name(regex: '排除')
-        final: Final
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('HK-LoadBalance')
+        filter: group('HK-Fallback')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('JP-LoadBalance')
+        filter: group('JP-Fallback')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('US-LoadBalance')
+        filter: group('US-Fallback')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('SG-LoadBalance')
+        filter: group('SG-Fallback')
+        filter: group('Auto')
+        filter: group('LoadBalance')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: Proxy
+        final: block
         interrupt_connections: true
     }
-    # Additional region group for YAML-only custom rules
+    # Hong Kong select
+    HK {
+        filter: name(regex: '(?i)(🇭🇰|HK|Hong[ _-]?Kong|香港|港)') && !name(regex: '台|日|韩|新|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: select
+        final: block
+        interrupt_connections: true
+    }
+    # Hong Kong min_moving_avg
+    HK-Auto {
+        filter: name(regex: '(?i)(🇭🇰|HK|Hong[ _-]?Kong|香港|港)') && !name(regex: '台|日|韩|新|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: min_moving_avg
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+        tolerance: 20
+    }
+    # Hong Kong loadbalance
+    HK-LoadBalance {
+        filter: name(regex: '(?i)(🇭🇰|HK|Hong[ _-]?Kong|香港|港)') && !name(regex: '台|日|韩|新|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: loadbalance
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+    }
+    # Hong Kong fallback
+    HK-Fallback {
+        filter: name(regex: '(?i)(🇭🇰|HK|Hong[ _-]?Kong|香港|港)') && !name(regex: '台|日|韩|新|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: fallback
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+    }
+    # Japan select
     JP {
-        filter: name(regex: '🇯🇵|JP|jp|日本|日|Japan') && !name(regex: '排除')
-        final: Final
+        filter: name(regex: '(?i)(🇯🇵|JP|Japan|日本|日)') && !name(regex: '港|台|韩|新|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: select
+        final: block
         interrupt_connections: true
+    }
+    # Japan min_moving_avg
+    JP-Auto {
+        filter: name(regex: '(?i)(🇯🇵|JP|Japan|日本|日)') && !name(regex: '港|台|韩|新|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: min_moving_avg
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+        tolerance: 20
+    }
+    # Japan loadbalance
+    JP-LoadBalance {
+        filter: name(regex: '(?i)(🇯🇵|JP|Japan|日本|日)') && !name(regex: '港|台|韩|新|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: loadbalance
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+    }
+    # Japan fallback
+    JP-Fallback {
+        filter: name(regex: '(?i)(🇯🇵|JP|Japan|日本|日)') && !name(regex: '港|台|韩|新|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: fallback
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+    }
+    # United States select
+    US {
+        filter: name(regex: '(?i)(🇺🇸|🇺🇲|US|United[ _-]?States|America|美国|美)') && !name(regex: '港|台|韩|新|日') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: select
+        final: block
+        interrupt_connections: true
+    }
+    # United States min_moving_avg
+    US-Auto {
+        filter: name(regex: '(?i)(🇺🇸|🇺🇲|US|United[ _-]?States|America|美国|美)') && !name(regex: '港|台|韩|新|日') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: min_moving_avg
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+        tolerance: 20
+    }
+    # United States loadbalance
+    US-LoadBalance {
+        filter: name(regex: '(?i)(🇺🇸|🇺🇲|US|United[ _-]?States|America|美国|美)') && !name(regex: '港|台|韩|新|日') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: loadbalance
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+    }
+    # United States fallback
+    US-Fallback {
+        filter: name(regex: '(?i)(🇺🇸|🇺🇲|US|United[ _-]?States|America|美国|美)') && !name(regex: '港|台|韩|新|日') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: fallback
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+    }
+    # Singapore select
+    SG {
+        filter: name(regex: '(?i)(🇸🇬|SG|Singapore|新加坡|坡|狮城)') && !name(regex: '台|日|韩|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: select
+        final: block
+        interrupt_connections: true
+    }
+    # Singapore min_moving_avg
+    SG-Auto {
+        filter: name(regex: '(?i)(🇸🇬|SG|Singapore|新加坡|坡|狮城)') && !name(regex: '台|日|韩|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: min_moving_avg
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+        tolerance: 20
+    }
+    # Singapore loadbalance
+    SG-LoadBalance {
+        filter: name(regex: '(?i)(🇸🇬|SG|Singapore|新加坡|坡|狮城)') && !name(regex: '台|日|韩|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: loadbalance
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+    }
+    # Singapore fallback
+    SG-Fallback {
+        filter: name(regex: '(?i)(🇸🇬|SG|Singapore|新加坡|坡|狮城)') && !name(regex: '台|日|韩|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: fallback
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+    }
+    # Nodes outside HK/JP/US/SG
+    Other {
+        filter: !name(regex: '(?i)(🇭🇰|HK|Hong[ _-]?Kong|香港|港|🇯🇵|JP|Japan|日本|日|🇺🇸|🇺🇲|US|United[ _-]?States|America|美国|美|🇸🇬|SG|Singapore|新加坡|坡|狮城)') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: select
+        final: block
+        interrupt_connections: true
+    }
+    # All eligible proxy nodes; direct excluded
+    All {
+        filter: !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: select
+        final: block
+        interrupt_connections: true
+    }
+    # All eligible proxy nodes; direct excluded
+    Auto {
+        filter: !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: min_moving_avg
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+        tolerance: 20
+    }
+    # All eligible proxy nodes; direct excluded
+    LoadBalance {
+        filter: !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: loadbalance
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
     }
 }
 
@@ -138,8 +620,8 @@ routing {
     # YAML supplement: jp-proxyrule
     domain(geosite: mig-jp-proxyrule) -> JP
     # YAML supplement: Apple_Push
-    domain(geosite: mig-apple-push) -> Proxy
-    dip(geoip: mig-apple-push) -> Proxy
+    domain(geosite: mig-apple-push) -> HK
+    dip(geoip: mig-apple-push) -> HK
     # YAML supplement: anti-ad
     domain(geosite: mig-anti-ad) -> block
     # YAML supplement: direct

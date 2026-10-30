@@ -3,6 +3,8 @@ on:
   push:
     branches: [main]
     paths:
+      - 'honk/config.dae'
+      - 'honk/groups.json'
       - 'honk/rules/**'
       - 'honk/scripts/**'
       - 'honk/sources.json'
@@ -28,6 +30,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Validate group structure
+        run: python honk/scripts/validate_groups.py
       - name: Build and validate databases
         run: python honk/scripts/build.py
       - name: Publish validated databases
