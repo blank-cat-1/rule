@@ -1,0 +1,211 @@
+{
+  "generated_utc": "2026-10-30T11:32:16.516970+00:00",
+  "providers": [
+    {
+      "name": "muse",
+      "category": "mig-muse",
+      "url": "https://raw.githubusercontent.com/juner922/muse-loon-rules/main/MuseAI.list",
+      "sha256": "3d7487336cf3125f9287ac918a490eb0781d1c14c4ecef03f39411a87f230344",
+      "bytes": 2330,
+      "domain_count": 24,
+      "cidr_count": 0,
+      "types": {
+        "suffix": 18,
+        "full": 6
+      },
+      "flags": {},
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "direct",
+      "category": "mig-direct",
+      "url": "https://raw.githubusercontent.com/blank-cat-1/rule/main/rules/direct.list",
+      "sha256": "cb89f611194982c7f1bc604b5cf4c4ba3e2b21f5c8b0625478fbb1ae689e0d1e",
+      "bytes": 54,
+      "domain_count": 1,
+      "cidr_count": 0,
+      "types": {
+        "suffix": 1
+      },
+      "flags": {},
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "proxy-rule",
+      "category": "mig-proxy-rule",
+      "url": "https://raw.githubusercontent.com/blank-cat-1/rule/main/rules/myrule.list",
+      "sha256": "d9f97b22ce751a63dafdb97e59ec2c1638d719806541530d61d568bc00d4e22f",
+      "bytes": 134,
+      "domain_count": 4,
+      "cidr_count": 0,
+      "types": {
+        "keyword": 4
+      },
+      "flags": {},
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "jp-proxyrule",
+      "category": "mig-jp-proxyrule",
+      "url": "https://raw.githubusercontent.com/blank-cat-1/rule/main/rules/jp-proxyrule.list",
+      "sha256": "c318ef4122557dcc8d95ca2b8ca216e99cd961315d7035446820d12db4d8e54f",
+      "bytes": 254,
+      "domain_count": 8,
+      "cidr_count": 0,
+      "types": {
+        "suffix": 8
+      },
+      "flags": {},
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "Apple_Push",
+      "category": "mig-apple-push",
+      "url": "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/loon/apns.list",
+      "sha256": "c94c5537b667b75eea429c30f5587a7577127405891a96bbd58fad1f0f3a0a97",
+      "bytes": 439,
+      "domain_count": 4,
+      "cidr_count": 9,
+      "types": {
+        "full": 1,
+        "suffix": 2,
+        "keyword": 1,
+        "ipv4": 5,
+        "ipv6": 4
+      },
+      "flags": {
+        "no-resolve": 9
+      },
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "anti-ad",
+      "category": "mig-anti-ad",
+      "url": "https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/adblockmihomolite.mrs",
+      "sha256": "49c45637cf5363b9ae4c42380f89af2a7b330c95abbcf5d45eafa14e618fd8ec",
+      "bytes": 77476,
+      "domain_count": 8480,
+      "cidr_count": 0,
+      "types": {
+        "suffix": 8480
+      },
+      "flags": {},
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "private_domain",
+      "category": "mig-private-domain",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs",
+      "sha256": "df452ab1bfb572f366f00001fa4525f16f137dc670aed2c60af0100dc397d3ec",
+      "bytes": 781,
+      "domain_count": 132,
+      "cidr_count": 0,
+      "types": {
+        "suffix": 118,
+        "full": 14
+      },
+      "flags": {},
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "proxylite",
+      "category": "mig-proxylite",
+      "url": "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/rules/proxy.list",
+      "sha256": "6726143e8476ac30f11f737d4ff3faa7c36abfb6614df1597e5962a4b2082b1f",
+      "bytes": 680,
+      "domain_count": 13,
+      "cidr_count": 7,
+      "types": {
+        "suffix": 12,
+        "keyword": 1,
+        "ipv4": 7
+      },
+      "flags": {
+        "no-resolve": 7
+      },
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "cn_domain",
+      "category": "mig-cn-domain",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs",
+      "sha256": "0b8c7c4d9773471991dd65737fdb16f3bf1baf2512c8b764d4c235318f01b7c6",
+      "bytes": 532882,
+      "domain_count": 110177,
+      "cidr_count": 0,
+      "types": {
+        "suffix": 110177
+      },
+      "flags": {},
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "cn_ip",
+      "category": "mig-cn-ip",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs",
+      "sha256": "1cd97d734afafcac0708895cefa931ed19aeac28933458afdc4f9c13e915fcb5",
+      "bytes": 38572,
+      "domain_count": 0,
+      "cidr_count": 10012,
+      "types": {
+        "ipv4": 6516,
+        "ipv6": 3496
+      },
+      "flags": {},
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "google_ip",
+      "category": "mig-google-ip",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs",
+      "sha256": "673d040076194651400d8a694987f332072c273a050c569c17c5ee4549ae85ad",
+      "bytes": 8369,
+      "domain_count": 0,
+      "cidr_count": 8559,
+      "types": {
+        "ipv4": 3017,
+        "ipv6": 5542
+      },
+      "flags": {},
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "netflix_ip",
+      "category": "mig-netflix-ip",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs",
+      "sha256": "3fba174fdae1efe489d9b489126fa48e8a340f6d1f96b1478afad0c43781c14a",
+      "bytes": 364,
+      "domain_count": 0,
+      "cidr_count": 122,
+      "types": {
+        "ipv4": 36,
+        "ipv6": 86
+      },
+      "flags": {},
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "apple_ip",
+      "category": "mig-apple-ip",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs",
+      "sha256": "9c3ac6e550ff760e7af78040ceac1711e4b6173876069926e40a492ad1683cb5",
+      "bytes": 131,
+      "domain_count": 0,
+      "cidr_count": 10,
+      "types": {
+        "ipv4": 10
+      },
+      "flags": {},
+      "usage": "supplemental-traffic"
+    }
+  ],
+  "validation": {
+    "all_downloads_parsed": true,
+    "all_binary_records_roundtrip_equal": true,
+    "no_deployment": true
+  },
+  "assets": {
+    "geosite.dat": "1420bcdf3f0976b3ff6f83bcb20209e35a9e108abf546b1706b581f730b20980",
+    "geoip.dat": "31ecff855261bb9dcd8ab252ba68ba1af38a016e7d4485778e3f3fd507f3d3be"
+  }
+}
