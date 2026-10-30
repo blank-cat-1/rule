@@ -40,7 +40,7 @@ def main():
   for name in names:
    digest=hashlib.sha256((a.out/name).read_bytes()).hexdigest()
    sums.append(digest+'  '+name)
-   if name.endswith('.dat'):(a.out/(name+'.sha256')).write_text(digest+'  '+name+'\n','utf-8')
+   if name.endswith('.dat'):(a.out/(name+'.sha256sum')).write_text(digest+'  '+name+'\n','utf-8')
   (a.out/'SHA256SUMS').write_text('\n'.join(sums)+'\n','utf-8')
   print('PASS:',len(parsed),'providers, all Geo records roundtrip-equal; no router operations')
 if __name__=='__main__':main()
