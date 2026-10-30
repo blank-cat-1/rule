@@ -1,0 +1,46 @@
+name: Build honk databases
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'honk/rules/**'
+      - 'honk/scripts/**'
+      - 'honk/sources.json'
+      - '.github/workflows/honk-update.yml'
+  pull_request:
+    paths: ['honk/**', '.github/workflows/honk-update.yml']
+  workflow_dispatch:
+  schedule:
+    - cron: '20 20 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: honk-databases-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build and validate databases
+        run: python honk/scripts/build.py
+      - name: Publish validated databases
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add honk/dat/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Update honk native rule databases'
+          git push origin HEAD:main
+      - uses: actions/upload-artifact@v4
+        with:
+          name: honk-databases
+          path: honk/dat/

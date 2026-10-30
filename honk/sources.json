@@ -1,0 +1,153 @@
+{
+  "schema": 1,
+  "providers": [
+    {
+      "name": "muse",
+      "file": "muse.list",
+      "url": "https://raw.githubusercontent.com/juner922/muse-loon-rules/main/MuseAI.list",
+      "format": "text",
+      "behavior": "classical",
+      "category": "mig-muse",
+      "sha256": "3d7487336cf3125f9287ac918a490eb0781d1c14c4ecef03f39411a87f230344",
+      "usage": "supplemental-traffic",
+      "local": "rules/muse.list"
+    },
+    {
+      "name": "direct",
+      "file": "direct.list",
+      "url": "https://raw.githubusercontent.com/blank-cat-1/rule/main/rules/direct.list",
+      "format": "text",
+      "behavior": "classical",
+      "category": "mig-direct",
+      "sha256": "cb89f611194982c7f1bc604b5cf4c4ba3e2b21f5c8b0625478fbb1ae689e0d1e",
+      "usage": "supplemental-traffic",
+      "local": "rules/direct.list"
+    },
+    {
+      "name": "proxy-rule",
+      "file": "proxy-rule.list",
+      "url": "https://raw.githubusercontent.com/blank-cat-1/rule/main/rules/myrule.list",
+      "format": "text",
+      "behavior": "classical",
+      "category": "mig-proxy-rule",
+      "sha256": "d9f97b22ce751a63dafdb97e59ec2c1638d719806541530d61d568bc00d4e22f",
+      "usage": "supplemental-traffic",
+      "local": "rules/proxy-rule.list"
+    },
+    {
+      "name": "jp-proxyrule",
+      "file": "jp-proxyrule.list",
+      "url": "https://raw.githubusercontent.com/blank-cat-1/rule/main/rules/jp-proxyrule.list",
+      "format": "text",
+      "behavior": "classical",
+      "category": "mig-jp-proxyrule",
+      "sha256": "c318ef4122557dcc8d95ca2b8ca216e99cd961315d7035446820d12db4d8e54f",
+      "usage": "supplemental-traffic",
+      "local": "rules/jp-proxyrule.list"
+    },
+    {
+      "name": "Apple_Push",
+      "file": "Apple_Push.list",
+      "url": "https://raw.githubusercontent.com/QuixoticHeart/rule-set/refs/heads/ruleset/loon/apns.list",
+      "format": "text",
+      "behavior": "classical",
+      "category": "mig-apple-push",
+      "sha256": "c94c5537b667b75eea429c30f5587a7577127405891a96bbd58fad1f0f3a0a97",
+      "usage": "supplemental-traffic",
+      "local": "rules/Apple_Push.list"
+    },
+    {
+      "name": "anti-ad",
+      "file": "anti-ad.mrs",
+      "url": "https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/adblockmihomolite.mrs",
+      "format": "mrs",
+      "behavior": "domain",
+      "category": "mig-anti-ad",
+      "sha256": "49c45637cf5363b9ae4c42380f89af2a7b330c95abbcf5d45eafa14e618fd8ec",
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "private_domain",
+      "file": "private_domain.mrs",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs",
+      "format": "mrs",
+      "behavior": "domain",
+      "category": "mig-private-domain",
+      "sha256": "df452ab1bfb572f366f00001fa4525f16f137dc670aed2c60af0100dc397d3ec",
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "proxylite",
+      "file": "proxylite.list",
+      "url": "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/rules/proxy.list",
+      "format": "text",
+      "behavior": "classical",
+      "category": "mig-proxylite",
+      "sha256": "6726143e8476ac30f11f737d4ff3faa7c36abfb6614df1597e5962a4b2082b1f",
+      "usage": "supplemental-traffic",
+      "local": "rules/proxylite.list"
+    },
+    {
+      "name": "cn_domain",
+      "file": "cn_domain.mrs",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs",
+      "format": "mrs",
+      "behavior": "domain",
+      "category": "mig-cn-domain",
+      "sha256": "0b8c7c4d9773471991dd65737fdb16f3bf1baf2512c8b764d4c235318f01b7c6",
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "cn_ip",
+      "file": "cn_ip.mrs",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs",
+      "format": "mrs",
+      "behavior": "ipcidr",
+      "category": "mig-cn-ip",
+      "sha256": "1cd97d734afafcac0708895cefa931ed19aeac28933458afdc4f9c13e915fcb5",
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "google_ip",
+      "file": "google_ip.mrs",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs",
+      "format": "mrs",
+      "behavior": "ipcidr",
+      "category": "mig-google-ip",
+      "sha256": "673d040076194651400d8a694987f332072c273a050c569c17c5ee4549ae85ad",
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "netflix_ip",
+      "file": "netflix_ip.mrs",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs",
+      "format": "mrs",
+      "behavior": "ipcidr",
+      "category": "mig-netflix-ip",
+      "sha256": "3fba174fdae1efe489d9b489126fa48e8a340f6d1f96b1478afad0c43781c14a",
+      "usage": "supplemental-traffic"
+    },
+    {
+      "name": "apple_ip",
+      "file": "apple_ip.mrs",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs",
+      "format": "mrs",
+      "behavior": "ipcidr",
+      "category": "mig-apple-ip",
+      "sha256": "9c3ac6e550ff760e7af78040ceac1711e4b6173876069926e40a492ad1683cb5",
+      "usage": "supplemental-traffic"
+    }
+  ],
+  "base_assets": [
+    {
+      "file": "base-geosite.dat",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.dat",
+      "sha256": "b4d3807aa45b4f5532ae236672f244a562452622483c0b489c63dd2aadaa821f"
+    },
+    {
+      "file": "base-geoip.dat",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.dat",
+      "sha256": "fbf747a085be25eb61ecac8c27140b4ab0bf8181af6fdb104caa325bd93cf117"
+    }
+  ]
+}
