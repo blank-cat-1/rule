@@ -113,3 +113,23 @@ python honk/scripts/build.py --mihomo /path/to/mihomo
 末尾 geoip:cn 的普通 direct 保留：开头 direct(must) 排除了 53/853，条件不同，不把它当成无条件重复删除。两条规则引用同一份标准 cn 数据，不存在复制数据库分类。
 
 构建在发布前检查全部 routing/DNS Geo 分类和属性确实存在、且有有效条目，并禁止已删除的重复分类重新进入运行库和自建库。官方库缺分类时构建失败，保留上一次发布，不会发布匹配为空的文件。
+
+## 独立精简版：仅一个自动组、一个手动组
+
+完整版 `honk/config.dae` 原样保留。另提供 `honk/config-lite.dae`，全局只有两个组：
+
+- **Auto**：对所有地区的有效节点自动测速选择，policy 为 min_moving_avg、tolerance 为 20ms。
+- **Manual**：手动选择 Auto、单个有效节点或显式 direct；默认 Auto。
+
+所有代理规则统一指向 Manual，匹配条件、顺序、DIRECT/REJECT 以及 IPv4 优先/IPv6 回退、DNS 分流、订阅和 Doona 设置保留。精简版不再分别选择 HK/JP/US/SG，也不再对 Muse、日本规则、Apple Push 锁定地区：这些服务均跟随 Manual，区域限制需通过手动选节点满足。没有健康节点时 block，不隐式转为直连。
+
+两个版本共用 `honk/dat/`，不需要新建或复制数据库。只选一份配置作为运行入口，不要把两份配置同时 include。公开文件中的订阅仍为占位符，实际订阅只在路由器本地填写。
+
+完整版后续变更后，可重新生成并验证精简版：
+
+```sh
+python honk/scripts/make_lite.py
+python honk/scripts/validate_lite.py
+```
+
+生成器拒绝使用相同的输入/输出路径，不会覆盖完整版。CI 同时校验两版结构；若完整版规则/DNS 变化，需同步重新生成精简版再提交。路由器只有 Geo 自动更新，不会自动切换或覆盖 `.dae`；使用精简版需主动应用该配置并重新加载 honk，无需重启整台路由器。

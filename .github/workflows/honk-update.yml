@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'honk/config.dae'
+      - 'honk/config-lite.dae'
       - 'honk/groups.json'
       - 'honk/rules/**'
       - 'honk/scripts/**'
@@ -32,6 +33,8 @@ jobs:
           python-version: '3.12'
       - name: Validate group structure
         run: python honk/scripts/validate_groups.py
+      - name: Validate separate lite configuration
+        run: python honk/scripts/validate_lite.py
       - name: Build and validate databases
         run: python honk/scripts/build.py
       - name: Publish validated databases
