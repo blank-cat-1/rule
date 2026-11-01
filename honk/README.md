@@ -4,7 +4,7 @@
 
 ## 配置
 
-`config.dae` 保留原 dae 的 DNS、AAAA 拒绝、853/UDP443 阻断、国内 IP 强制直连与 Doona 设置，网卡为 br-lan。策略组已按 Mihomo YAML 类似层级重构：服务选择器 → 地区策略 → 节点。Final 改为可手动选择的漏网流量组，默认选择 Proxy，不再固定为 score。
+`config.dae` 保留原 dae 的 DNS 分流、IPv4 优先与 IPv6 回退、853/UDP443 阻断、国内 IP 强制直连与 Doona 设置，网卡为 br-lan。策略组已按 Mihomo YAML 类似层级重构：服务选择器 → 地区策略 → 节点。Final 改为可手动选择的漏网流量组，默认选择 Proxy，不再固定为 score。
 
 **公开配置的订阅 URL 是占位符。使用前在本机替换，勿把真实订阅提交到仓库。**
 
@@ -85,3 +85,11 @@ python honk/scripts/build.py --mihomo /path/to/mihomo
 脚本不读取订阅、不登录路由器、不安装、不重启服务。已做静态/数据校验；未在用户路由器上验证 honk Rust 加载器、内核挂载或节点连通。
 
 官方依据：[routing/Geo 规则](https://github.com/daeuniverse/honk/blob/main/doc/en/reference/routing.md)、[assets 下载设置](https://github.com/daeuniverse/honk/blob/main/doc/en/reference/assets.md)。
+
+## DNS：IPv4 优先，保留 IPv6 回退
+
+`dns.ipversion_prefer: 4` 使用原生 preferipv4 策略；移除了此前的 `qtype(aaaa) -> reject`，保留其余 DNS 请求/响应分流及两个上游。v0.1.0-beta.1 的官方解析器和文档已经支持此设置。
+
+注意：IPv6 回退是 DNS 地址族策略：IPv4 无地址或优先族解析遇到普通可用性失败时，允许返回 IPv6；不是保证任意 IPv4 TCP 连接失败后再改走 IPv6。客户端自带 DoH 绕过 honk 时也不受此 DNS 设置控制。
+
+修改仓库不会自动替换路由器的 `.dae`。将配置应用到实际文件后重新加载 honk 即可，无须重新构建固件、数据库或重启路由器。当前检查仅做官方版本支持和静态结构验证，未远程连接路由器或运行原生加载器。
