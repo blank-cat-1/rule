@@ -588,6 +588,7 @@ group {
 }
 
 dns {
+    ipversion_prefer: 4
     upstream {
         remote: 'https://8.8.8.8/dns-query'
         local: 'https://223.5.5.5/dns-query'
@@ -595,7 +596,6 @@ dns {
     routing {
         request {
             qtype(https, svcb) -> reject
-            qtype(aaaa) -> reject
             qname(suffix: googleapis.cn, suffix: xn--ngstr-lra8j.com) -> remote
             qname(geosite: cn, geosite: microsoft@cn, geosite: apple@cn, geosite: private) -> local
             qname(geosite: geolocation-!cn) -> remote
