@@ -2,6 +2,7 @@
 """Build honk native databases from local custom lists + public upstreams."""
 import argparse,datetime,gzip,hashlib,json,pathlib,shutil,sys,tempfile
 from geo_builder import build,download,geo_entries,field
+from validate_geodata import validate_assets
 
 HOME=pathlib.Path(__file__).resolve().parents[1]
 def install_mihomo(folder):
@@ -33,6 +34,7 @@ def main():
    b=b''.join(field(1,v) for v in custom.values())
    (candidate/('custom-'+kind+'.dat')).write_bytes(b)
    assert geo_entries(b)==custom
+  validate_assets((HOME/'config.dae').read_text('utf-8'),candidate)
   a.out.mkdir(parents=True,exist_ok=True)
   names=['geosite.dat','geoip.dat','custom-geosite.dat','custom-geoip.dat','rules-audit.json']
   for name in names:shutil.copy2(candidate/name,a.out/name)

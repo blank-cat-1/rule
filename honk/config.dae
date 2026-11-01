@@ -626,8 +626,8 @@ routing {
     domain(geosite: mig-anti-ad) -> block
     # YAML supplement: direct
     domain(geosite: mig-direct) -> direct
-    # YAML supplement: private_domain
-    domain(geosite: mig-private-domain) -> direct
+    # Missing rule: private domains; reuse standard category
+    domain(geosite: private) -> direct
     # YAML supplement: proxylite
     domain(geosite: mig-proxylite) -> Proxy
     dip(geoip: mig-proxylite) -> Proxy
@@ -649,16 +649,16 @@ routing {
     domain(geosite: steam) -> Steam
     # YAML supplement: apple_ip
     dip(geoip: mig-apple-ip) -> direct
-    # YAML supplement: google_ip
-    dip(geoip: mig-google-ip) -> Google
-    # YAML supplement: netflix_ip
-    dip(geoip: mig-netflix-ip) -> Netflix
+    # Missing rule: Google IP; reuse standard category
+    dip(geoip: google) -> Google
+    # Missing rule: Netflix IP; reuse standard category
+    dip(geoip: netflix) -> Netflix
     domain(geosite: geolocation-!cn) -> Proxy
     dip(geoip: telegram) -> Telegram
-    # YAML supplement: cn_domain
-    domain(geosite: mig-cn-domain) -> direct
-    # YAML supplement: cn_ip
-    dip(geoip: mig-cn-ip) -> direct
+    # Missing rule: China domains; reuse standard category
+    domain(geosite: cn) -> direct
+    # Port-53-compatible tail rule; same cn data, different conditions from initial must rule
+    dip(geoip: cn) -> direct
     fallback: Final
 }
 

@@ -66,7 +66,7 @@ https://raw.githubusercontent.com/blank-cat-1/rule/main/honk/dat/geoip.dat
 
 原 dae 开头的 private/cn IP direct(must)、853 和 UDP443 阻断继续优先。自建例外放在这些基础规则之后、原服务域名规则之前。已有 Apple、AI、Wallet、Steam 等策略不被 YAML 同类设置替换。
 
-追加的原生分类使用 `mig-` 前缀。MRS 均由固定版本的官方 Mihomo 工具解码；下载工具时核对 GitHub release asset SHA256。Mihomo 只参与构建，不需要安装在路由器上。
+需要自建的原生分类使用 `mig-` 前缀，标准库已有分类直接复用。MRS 均由固定版本的官方 Mihomo 工具解码；下载工具时核对 GitHub release asset SHA256。Mihomo 只参与构建，不需要安装在路由器上。
 
 ## 本地构建
 
@@ -93,3 +93,23 @@ python honk/scripts/build.py --mihomo /path/to/mihomo
 注意：IPv6 回退是 DNS 地址族策略：IPv4 无地址或优先族解析遇到普通可用性失败时，允许返回 IPv6；不是保证任意 IPv4 TCP 连接失败后再改走 IPv6。客户端自带 DoH 绕过 honk 时也不受此 DNS 设置控制。
 
 修改仓库不会自动替换路由器的 `.dae`。将配置应用到实际文件后重新加载 honk 即可，无须重新构建固件、数据库或重启路由器。当前检查仅做官方版本支持和静态结构验证，未远程连接路由器或运行原生加载器。
+
+## 原始路由为基础与数据库去重
+
+原始 config.dae 的全部 routing 表达式、目标和相互顺序继续保留，仅补入缺少的匹配。现有 34 个策略组、IPv4 优先与 IPv6 回退、DNS 分流、订阅和 Doona 设置不变。
+
+自建数据库只保留 8 个补充 provider：muse、proxy-rule、jp-proxyrule、Apple_Push、anti-ad、direct、proxylite、apple_ip。以下分类不再重复抓取或生成，配置改用标准数据：
+
+| 删除的重复分类 | 使用的标准分类 |
+|---|---|
+| mig-cn-domain | geosite: cn |
+| mig-cn-ip | geoip: cn |
+| mig-google-ip | geoip: google |
+| mig-netflix-ip | geoip: netflix |
+| mig-private-domain | geosite: private |
+
+去重时核对：国内域名 110,177 条记录相同；国内 10,012、Google 8,559、Netflix 122 条 CIDR 的地址覆盖完全相同。标准 private 包含迁移版的全部 132 条，另有一条匹配单标签主机名的正则；以标准库为准，因此这些本地主机名也会直连。
+
+末尾 geoip:cn 的普通 direct 保留：开头 direct(must) 排除了 53/853，条件不同，不把它当成无条件重复删除。两条规则引用同一份标准 cn 数据，不存在复制数据库分类。
+
+构建在发布前检查全部 routing/DNS Geo 分类和属性确实存在、且有有效条目，并禁止已删除的重复分类重新进入运行库和自建库。官方库缺分类时构建失败，保留上一次发布，不会发布匹配为空的文件。
