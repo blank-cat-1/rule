@@ -114,22 +114,21 @@ python honk/scripts/build.py --mihomo /path/to/mihomo
 
 构建在发布前检查全部 routing/DNS Geo 分类和属性确实存在、且有有效条目，并禁止已删除的重复分类重新进入运行库和自建库。官方库缺分类时构建失败，保留上一次发布，不会发布匹配为空的文件。
 
-## 独立精简版：仅一个自动组、一个手动组
+## 独立精简版：地区保留手动和自动，去掉负载均衡及故障转移
 
-完整版 `honk/config.dae` 原样保留。另提供 `honk/config-lite.dae`，全局只有两个组：
+完整版 `honk/config.dae` 原样保留。`honk/config-lite.dae` 保留原有地区和服务分层，仅移除负载均衡/故障转移选项及其组定义。
 
-- **Auto**：对所有地区的有效节点自动测速选择，policy 为 min_moving_avg、tolerance 为 20ms。
-- **Manual**：手动选择 Auto、单个有效节点或显式 direct；默认 Auto。
+每个地区仍有两组：HK / HK-Auto、JP / JP-Auto、US / US-Auto、SG / SG-Auto。Proxy、AI、Google、YouTube、Github、Telegram 等原服务选择器，以及 Final、All、Auto、Other 均保留，默认选择不变。共 25 个组。
 
-所有代理规则统一指向 Manual，匹配条件、顺序、DIRECT/REJECT 以及 IPv4 优先/IPv6 回退、DNS 分流、订阅和 Doona 设置保留。精简版不再分别选择 HK/JP/US/SG，也不再对 Muse、日本规则、Apple Push 锁定地区：这些服务均跟随 Manual，区域限制需通过手动选节点满足。没有健康节点时 block，不隐式转为直连。
+删除四个地区的 `*-LoadBalance`、`*-Fallback`，以及全局 `LoadBalance`。所有选择器中对这些组的 filter 引用一并删除，其他 filter、默认成员和策略原样保留。
 
-两个版本共用 `honk/dat/`，不需要新建或复制数据库。只选一份配置作为运行入口，不要把两份配置同时 include。公开文件中的订阅仍为占位符，实际订阅只在路由器本地填写。
+路由段逐字保持完整版，包括 Muse → US、日本规则 → JP、Apple Push → HK；IPv4 优先、IPv6 回退、DNS 分流、订阅、Doona 和数据库地址也保持不变。两个版本共用 honk/dat/，只选择一个配置作为运行入口，不要同时 include 两份配置。公开订阅是占位符，真实订阅只在本机填写。
 
-完整版后续变更后，可重新生成并验证精简版：
+生成与验证：
 
 ```sh
 python honk/scripts/make_lite.py
 python honk/scripts/validate_lite.py
 ```
 
-生成器拒绝使用相同的输入/输出路径，不会覆盖完整版。CI 同时校验两版结构；若完整版规则/DNS 变化，需同步重新生成精简版再提交。路由器只有 Geo 自动更新，不会自动切换或覆盖 `.dae`；使用精简版需主动应用该配置并重新加载 honk，无需重启整台路由器。
+生成器不会覆盖完整版。完整版改动后需重新生成精简版一同提交。Geo 自动更新不会自动替换 `.dae`；切换精简版需要应用配置并重载 honk，无须重启整台路由器。

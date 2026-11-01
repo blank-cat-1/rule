@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a separate two-group configuration; never overwrite the full config."""
+"""Generate a regional manual/auto edition; never overwrite the full config."""
 import argparse,pathlib,re
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
@@ -25,47 +25,26 @@ def span(text,name):
  raise ValueError('unclosed block '+name)
 
 def generate(full):
- a,b=span(full,'group');names=set(re.findall(r'(?m)^    ([\w-]+)\s*\{',full[a:b]))
- groups='''group {
-    # Auto: choose the lowest-latency healthy node from all regions.
-    Auto {
-        filter: !name(regex: 'EXCLUDE')
-        policy: min_moving_avg
-        tolerance: 20
-        check_url: 'https://www.gstatic.com/generate_204'
-        final: block
-        interrupt_connections: true
-    }
-    # Manual: choose Auto, one eligible node, or explicit direct.
-    Manual {
-        filter: group('Auto')
-        filter: !name(regex: 'EXCLUDE')
-        filter: name(direct)
-        policy: select
-        default: Auto
-        final: block
-        interrupt_connections: true
-    }
-}'''.replace('EXCLUDE',EXCLUDE)
- result=full[:a]+groups+full[b:]
- x,y=span(result,'routing');routing=result[x:y]
- def target(m):return m[1]+('Manual' if m[2] in names else m[2])
- routing=re.sub(r'(->[ \t]*)([\w-]+)',target,routing)
- routing=re.sub(r'(fallback:[ \t]*)([\w-]+)',target,routing)
- result=result[:x]+routing+result[y:]
- # Retarget explicit proxy detours only if the full config contains them.
- # DNS actions and node/subscription URLs remain unchanged.
- for name in ['subscription','assets','dns']:
-  try:x,y=span(result,name)
-  except ValueError:continue
-  text=result[x:y]
-  text=re.sub(r'(?m)^([ \t]*route:[ \t]*)([\w-]+)([ \t]*(?:#.*)?)$',lambda m:m[1]+('Manual' if m[2] in names else m[2])+m[3],text)
-  if name in ['dns','subscription']:text=re.sub(r'(->[ \t]*)([\w-]+)',target,text)
-  result=result[:x]+text+result[y:]
+ a,b=span(full,'group');section=full[a:b]
+ entries=list(re.finditer(r'(?ms)^    ([\w-]+) \{\n(.*?)^    \}',section))
+ removed=set()
+ for entry in entries:
+  policy=re.search(r'(?m)^\s*policy:\s*([\w-]+)',entry[2])
+  if policy and policy[1] in ['loadbalance','load_balance','roundrobin','fallback']:
+   removed.add(entry[1])
+ assert removed,'full configuration contains no loadbalance/fallback groups'
+ for entry in reversed(entries):
+  if entry[1] in removed:section=section[:entry.start()]+section[entry.end():]
+ for name in removed:
+  section=re.sub(r"(?m)^[ \t]*filter: group\('"+re.escape(name)+r"'\)[ \t]*\r?\n",'',section)
+ # Current defaults are Auto or Proxy and never target a removed group.
+ for name in removed:
+  assert not re.search(r'(?m)^\s*(default|final):\s*'+re.escape(name)+r'\s*$',section),'removed group used as default/final'
+ result=full[:a]+section+full[b:]
  return result
 
 def main():
  ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--input',type=pathlib.Path,default=ROOT/'config.dae');ap.add_argument('--output',type=pathlib.Path,default=ROOT/'config-lite.dae');a=ap.parse_args()
  if a.input.resolve()==a.output.resolve():raise SystemExit('Refusing to overwrite full configuration')
- result=generate(a.input.read_text('utf-8-sig'));a.output.write_text(result,'utf-8');print('Generated separate two-group config; full config unchanged; no deployment')
+ result=generate(a.input.read_text('utf-8-sig'));a.output.write_text(result,'utf-8');print('Generated regional manual/auto config; full config unchanged; no deployment')
 if __name__=='__main__':main()

@@ -21,25 +21,390 @@ subscription {
 
 # policy 可选 select（面板手动选，默认）/ min_moving_avg（延迟最低）/ fallback（按顺序取第一个存活）/ loadbalance（轮询）/ score（按实际连接质量评分）；final：所选节点不可用时改走的组
 group {
-    # Auto: choose the lowest-latency healthy node from all regions.
+    # Service selector
+    Proxy {
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: HK-Auto
+        final: block
+        interrupt_connections: true
+    }
+    # Service selector
+    AI {
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: JP-Auto
+        final: block
+        interrupt_connections: true
+    }
+    # Service selector
+    YouTube {
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: US-Auto
+        final: block
+        interrupt_connections: true
+    }
+    # Service selector
+    Google {
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: HK-Auto
+        final: block
+        interrupt_connections: true
+    }
+    # Service selector
+    Github {
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: HK-Auto
+        final: block
+        interrupt_connections: true
+    }
+    # Service selector
+    Telegram {
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: HK-Auto
+        final: block
+        interrupt_connections: true
+    }
+    # Service selector
+    TikTok {
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: JP-Auto
+        final: block
+        interrupt_connections: true
+    }
+    # Service selector
+    Netflix {
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: SG-Auto
+        final: block
+        interrupt_connections: true
+    }
+    # Service selector
+    Wallet {
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: JP-Auto
+        final: block
+        interrupt_connections: true
+    }
+    # Service selector
+    Steam {
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: HK-Auto
+        final: block
+        interrupt_connections: true
+    }
+    # Service selector
+    Microsoft {
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: JP-Auto
+        final: block
+        interrupt_connections: true
+    }
+    # Service selector
+    OneDrive {
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: JP-Auto
+        final: block
+        interrupt_connections: true
+    }
+    # Service selector
+    Apple {
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: HK-Auto
+        final: block
+        interrupt_connections: true
+    }
+    # Choose a region policy or direct; Final is the unmatched-traffic selector.
+    Final {
+        filter: group('Proxy')
+        filter: group('HK-Auto')
+        filter: group('HK')
+        filter: group('JP-Auto')
+        filter: group('JP')
+        filter: group('US-Auto')
+        filter: group('US')
+        filter: group('SG-Auto')
+        filter: group('SG')
+        filter: group('Auto')
+        filter: group('Other')
+        filter: group('All')
+        filter: name(direct)
+        policy: select
+        default: Proxy
+        final: block
+        interrupt_connections: true
+    }
+    # Hong Kong select
+    HK {
+        filter: name(regex: '(?i)(🇭🇰|HK|Hong[ _-]?Kong|香港|港)') && !name(regex: '台|日|韩|新|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: select
+        final: block
+        interrupt_connections: true
+    }
+    # Hong Kong min_moving_avg
+    HK-Auto {
+        filter: name(regex: '(?i)(🇭🇰|HK|Hong[ _-]?Kong|香港|港)') && !name(regex: '台|日|韩|新|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: min_moving_avg
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+        tolerance: 20
+    }
+    # Hong Kong loadbalance
+
+    # Hong Kong fallback
+
+    # Japan select
+    JP {
+        filter: name(regex: '(?i)(🇯🇵|JP|Japan|日本|日)') && !name(regex: '港|台|韩|新|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: select
+        final: block
+        interrupt_connections: true
+    }
+    # Japan min_moving_avg
+    JP-Auto {
+        filter: name(regex: '(?i)(🇯🇵|JP|Japan|日本|日)') && !name(regex: '港|台|韩|新|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: min_moving_avg
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+        tolerance: 20
+    }
+    # Japan loadbalance
+
+    # Japan fallback
+
+    # United States select
+    US {
+        filter: name(regex: '(?i)(🇺🇸|🇺🇲|US|United[ _-]?States|America|美国|美)') && !name(regex: '港|台|韩|新|日') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: select
+        final: block
+        interrupt_connections: true
+    }
+    # United States min_moving_avg
+    US-Auto {
+        filter: name(regex: '(?i)(🇺🇸|🇺🇲|US|United[ _-]?States|America|美国|美)') && !name(regex: '港|台|韩|新|日') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: min_moving_avg
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+        tolerance: 20
+    }
+    # United States loadbalance
+
+    # United States fallback
+
+    # Singapore select
+    SG {
+        filter: name(regex: '(?i)(🇸🇬|SG|Singapore|新加坡|坡|狮城)') && !name(regex: '台|日|韩|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: select
+        final: block
+        interrupt_connections: true
+    }
+    # Singapore min_moving_avg
+    SG-Auto {
+        filter: name(regex: '(?i)(🇸🇬|SG|Singapore|新加坡|坡|狮城)') && !name(regex: '台|日|韩|深|美') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: min_moving_avg
+        final: block
+        interrupt_connections: true
+        check_url: 'https://www.gstatic.com/generate_204'
+        tolerance: 20
+    }
+    # Singapore loadbalance
+
+    # Singapore fallback
+
+    # Nodes outside HK/JP/US/SG
+    Other {
+        filter: !name(regex: '(?i)(🇭🇰|HK|Hong[ _-]?Kong|香港|港|🇯🇵|JP|Japan|日本|日|🇺🇸|🇺🇲|US|United[ _-]?States|America|美国|美|🇸🇬|SG|Singapore|新加坡|坡|狮城)') && !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: select
+        final: block
+        interrupt_connections: true
+    }
+    # All eligible proxy nodes; direct excluded
+    All {
+        filter: !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
+        policy: select
+        final: block
+        interrupt_connections: true
+    }
+    # All eligible proxy nodes; direct excluded
     Auto {
         filter: !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
         policy: min_moving_avg
-        tolerance: 20
+        final: block
+        interrupt_connections: true
         check_url: 'https://www.gstatic.com/generate_204'
-        final: block
-        interrupt_connections: true
+        tolerance: 20
     }
-    # Manual: choose Auto, one eligible node, or explicit direct.
-    Manual {
-        filter: group('Auto')
-        filter: !name(regex: '(?i)(官网|剩余|流量|套餐|免费|订阅|到期时间|直连|Expire Date|Traffic|ExpireDate|排除)')
-        filter: name(direct)
-        policy: select
-        default: Auto
-        final: block
-        interrupt_connections: true
-    }
+    # All eligible proxy nodes; direct excluded
+
 }
 
 dns {
@@ -69,14 +434,14 @@ routing {
     dport(853) -> block
     l4proto(udp) && dport(443) -> block
     # YAML supplement: muse
-    domain(geosite: mig-muse) -> Manual
+    domain(geosite: mig-muse) -> US
     # YAML supplement: proxy-rule
-    domain(geosite: mig-proxy-rule) -> Manual
+    domain(geosite: mig-proxy-rule) -> Proxy
     # YAML supplement: jp-proxyrule
-    domain(geosite: mig-jp-proxyrule) -> Manual
+    domain(geosite: mig-jp-proxyrule) -> JP
     # YAML supplement: Apple_Push
-    domain(geosite: mig-apple-push) -> Manual
-    dip(geoip: mig-apple-push) -> Manual
+    domain(geosite: mig-apple-push) -> HK
+    dip(geoip: mig-apple-push) -> HK
     # YAML supplement: anti-ad
     domain(geosite: mig-anti-ad) -> block
     # YAML supplement: direct
@@ -84,37 +449,37 @@ routing {
     # Missing rule: private domains; reuse standard category
     domain(geosite: private) -> direct
     # YAML supplement: proxylite
-    domain(geosite: mig-proxylite) -> Manual
-    dip(geoip: mig-proxylite) -> Manual
-    domain(suffix: googleapis.cn, suffix: xn--ngstr-lra8j.com) -> Manual
-    domain(suffix: withgoogle.com, suffix: notebooklm.google, geosite: category-ai-!cn) -> Manual
-    domain(geosite: youtube) -> Manual
-    domain(geosite: google) -> Manual
-    domain(geosite: github) -> Manual
-    domain(geosite: onedrive) -> Manual
+    domain(geosite: mig-proxylite) -> Proxy
+    dip(geoip: mig-proxylite) -> Proxy
+    domain(suffix: googleapis.cn, suffix: xn--ngstr-lra8j.com) -> Google
+    domain(suffix: withgoogle.com, suffix: notebooklm.google, geosite: category-ai-!cn) -> AI
+    domain(geosite: youtube) -> YouTube
+    domain(geosite: google) -> Google
+    domain(geosite: github) -> Github
+    domain(geosite: onedrive) -> OneDrive
     domain(geosite: microsoft@cn) -> direct
-    domain(geosite: microsoft) -> Manual
+    domain(geosite: microsoft) -> Microsoft
     domain(geosite: apple@cn) -> direct
-    domain(geosite: apple) -> Manual
-    domain(geosite: telegram) -> Manual
-    domain(geosite: tiktok) -> Manual
-    domain(geosite: netflix) -> Manual
-    domain(geosite: paypal, geosite: binance, geosite: okx, geosite: category-cryptocurrency) -> Manual
+    domain(geosite: apple) -> Apple
+    domain(geosite: telegram) -> Telegram
+    domain(geosite: tiktok) -> TikTok
+    domain(geosite: netflix) -> Netflix
+    domain(geosite: paypal, geosite: binance, geosite: okx, geosite: category-cryptocurrency) -> Wallet
     domain(geosite: steam@cn) -> direct
-    domain(geosite: steam) -> Manual
+    domain(geosite: steam) -> Steam
     # YAML supplement: apple_ip
     dip(geoip: mig-apple-ip) -> direct
     # Missing rule: Google IP; reuse standard category
-    dip(geoip: google) -> Manual
+    dip(geoip: google) -> Google
     # Missing rule: Netflix IP; reuse standard category
-    dip(geoip: netflix) -> Manual
-    domain(geosite: geolocation-!cn) -> Manual
-    dip(geoip: telegram) -> Manual
+    dip(geoip: netflix) -> Netflix
+    domain(geosite: geolocation-!cn) -> Proxy
+    dip(geoip: telegram) -> Telegram
     # Missing rule: China domains; reuse standard category
     domain(geosite: cn) -> direct
     # Port-53-compatible tail rule; same cn data, different conditions from initial must rule
     dip(geoip: cn) -> direct
-    fallback: Manual
+    fallback: Final
 }
 
 global {
