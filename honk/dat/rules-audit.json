@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-01T19:57:43.750101+00:00",
+  "generated_utc": "2026-11-01T20:12:41.763599+00:00",
   "providers": [
     {
       "name": "muse",
@@ -93,21 +93,6 @@
       "usage": "supplemental-traffic"
     },
     {
-      "name": "private_domain",
-      "category": "mig-private-domain",
-      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs",
-      "sha256": "df452ab1bfb572f366f00001fa4525f16f137dc670aed2c60af0100dc397d3ec",
-      "bytes": 781,
-      "domain_count": 132,
-      "cidr_count": 0,
-      "types": {
-        "suffix": 118,
-        "full": 14
-      },
-      "flags": {},
-      "usage": "supplemental-traffic"
-    },
-    {
       "name": "proxylite",
       "category": "mig-proxylite",
       "url": "https://raw.githubusercontent.com/qichiyuhub/rule/refs/heads/main/rules/proxy.list",
@@ -123,65 +108,6 @@
       "flags": {
         "no-resolve": 7
       },
-      "usage": "supplemental-traffic"
-    },
-    {
-      "name": "cn_domain",
-      "category": "mig-cn-domain",
-      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs",
-      "sha256": "0b8c7c4d9773471991dd65737fdb16f3bf1baf2512c8b764d4c235318f01b7c6",
-      "bytes": 532882,
-      "domain_count": 110177,
-      "cidr_count": 0,
-      "types": {
-        "suffix": 110177
-      },
-      "flags": {},
-      "usage": "supplemental-traffic"
-    },
-    {
-      "name": "cn_ip",
-      "category": "mig-cn-ip",
-      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs",
-      "sha256": "1cd97d734afafcac0708895cefa931ed19aeac28933458afdc4f9c13e915fcb5",
-      "bytes": 38572,
-      "domain_count": 0,
-      "cidr_count": 10012,
-      "types": {
-        "ipv4": 6516,
-        "ipv6": 3496
-      },
-      "flags": {},
-      "usage": "supplemental-traffic"
-    },
-    {
-      "name": "google_ip",
-      "category": "mig-google-ip",
-      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs",
-      "sha256": "673d040076194651400d8a694987f332072c273a050c569c17c5ee4549ae85ad",
-      "bytes": 8369,
-      "domain_count": 0,
-      "cidr_count": 8559,
-      "types": {
-        "ipv4": 3017,
-        "ipv6": 5542
-      },
-      "flags": {},
-      "usage": "supplemental-traffic"
-    },
-    {
-      "name": "netflix_ip",
-      "category": "mig-netflix-ip",
-      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs",
-      "sha256": "3fba174fdae1efe489d9b489126fa48e8a340f6d1f96b1478afad0c43781c14a",
-      "bytes": 364,
-      "domain_count": 0,
-      "cidr_count": 122,
-      "types": {
-        "ipv4": 36,
-        "ipv6": 86
-      },
-      "flags": {},
       "usage": "supplemental-traffic"
     },
     {
@@ -205,7 +131,7 @@
     "no_deployment": true
   },
   "assets": {
-    "geosite.dat": "fef713ec0b54fb601c5df41aaf9100e15228d6502dab3f9af21cf683e8c9df96",
-    "geoip.dat": "31ecff855261bb9dcd8ab252ba68ba1af38a016e7d4485778e3f3fd507f3d3be"
+    "geosite.dat": "bc59f4c69d702bdb004cab0b843d85cd03cc535698cf0d9fa570fa7d88b87630",
+    "geoip.dat": "d5e6a3abf646bbbb8272bb56a866f2df5b7b0f92d84f8c2034d6f0b7a11750d0"
   }
 }
