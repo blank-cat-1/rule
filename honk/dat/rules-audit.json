@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-14T23:55:41.491399+00:00",
+  "generated_utc": "2026-11-15T23:58:22.621028+00:00",
   "providers": [
     {
       "name": "muse",
@@ -131,7 +131,7 @@
     "no_deployment": true
   },
   "assets": {
-    "geosite.dat": "88cb7181d71686ff0ef5db73ef6cf8cbe762b96a17785001ac8a097bd9f9584c",
+    "geosite.dat": "6c779da5102f21652efcbb1a731ee3caac770e022cdd70f877b426f0e3706d3e",
     "geoip.dat": "d7e876b04ec2e3c462668edcc98f3bdcb4283c924eb4d7e1b89f38cd14e0e029"
   }
 }
