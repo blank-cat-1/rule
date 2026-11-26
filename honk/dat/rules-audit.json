@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-26T02:51:48.810903+00:00",
+  "generated_utc": "2026-11-26T18:08:49.235837+00:00",
   "providers": [
     {
       "name": "muse",
@@ -48,12 +48,12 @@
       "name": "jp-proxyrule",
       "category": "mig-jp-proxyrule",
       "url": "https://raw.githubusercontent.com/blank-cat-1/rule/main/rules/jp-proxyrule.list",
-      "sha256": "c318ef4122557dcc8d95ca2b8ca216e99cd961315d7035446820d12db4d8e54f",
-      "bytes": 254,
-      "domain_count": 8,
+      "sha256": "4908868081fa0eb9ae0bde2a829a3d9c92f65e4e67573ad9ba425c9f2ad59b12",
+      "bytes": 278,
+      "domain_count": 9,
       "cidr_count": 0,
       "types": {
-        "suffix": 8
+        "suffix": 9
       },
       "flags": {},
       "usage": "supplemental-traffic"
@@ -81,7 +81,7 @@
     {
       "name": "anti-ad",
       "category": "mig-anti-ad",
-      "url": "https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/adblockmihomolite.mrs",
+      "url": "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockmihomolite.mrs",
       "sha256": "49c45637cf5363b9ae4c42380f89af2a7b330c95abbcf5d45eafa14e618fd8ec",
       "bytes": 77476,
       "domain_count": 8480,
@@ -131,7 +131,7 @@
     "no_deployment": true
   },
   "assets": {
-    "geosite.dat": "03ce3ad849c5b5d5db7c15399dc90daeead769b322673e91cdad1f67307c7d24",
-    "geoip.dat": "a6c83af087bda1b303f7c97d27f8b79c9ac3476a70a1598e6ea5b144f6af480b"
+    "geosite.dat": "e8aec2e06272f4237beb3ca701d7eac61ec7f7e98e56e4bb93d9b9f43c1f4602",
+    "geoip.dat": "7ab73a65c5a836c4c18f9587345f704323e905fec1b7df68fa52d9d88426fc7b"
   }
 }
