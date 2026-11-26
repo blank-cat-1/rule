@@ -59,7 +59,7 @@
     {
       "name": "anti-ad",
       "file": "anti-ad.mrs",
-      "url": "https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/adblockmihomolite.mrs",
+      "url": "https://raw.githubusercontent.com/217heidai/adblockfilters/main/rules/adblockmihomolite.mrs",
       "format": "mrs",
       "behavior": "domain",
       "category": "mig-anti-ad",
